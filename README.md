@@ -1,9 +1,5 @@
 # Transparent Cropper
 ### This python script finds images in folder [png, jpg, jpeg] and cropping transparent spaces. Saving cropped images with 15 pixels padding in folder 'cropped'
-## Instalation
-```bash
-pip install -r requirements.txt
-```
 
 ## Usage with python
 ```bash
