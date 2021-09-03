@@ -40,7 +40,7 @@ for img_name in listdir():
 
   # Pixel check for color
   def pixel_is_colorized(color):
-    return reduce(lambda sum, deep: sum + deep % 255, color, 0) != 0
+    return reduce(lambda sum, deep: sum + deep % 255, color, 0) > 10
 
   # Find top
   while not pixel_is_colorized(img.getpixel(tuple(top))):
