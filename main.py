@@ -15,21 +15,21 @@ if __name__ == '__main__':
   success = 0
   result_folder_name = 'cropped'
 
-  folder_list = listdir()
-  print(' Выберите режим работы')
-  print(' [1] Обработать все изображения (по умолчанию)')
-  print(' [2] Обработать только новые изображения')
-  if int(input('- Введите 1 или 2: ')) == 2:
-    print(f" Обрабатываю только недостающие в папке '{result_folder_name}' изображения")
-    processed_list = [strip_format(item) for item in listdir(result_folder_name)]
-    folder_list = [item for item in folder_list if strip_format(item) not in processed_list]
-
   # Create result folder if not exist
   if not exists(result_folder_name):
     makedirs(result_folder_name)
 
+  folder_list = listdir()
+  print(' Выберите режим работы')
+  print(' [1] Обработать все изображения (по умолчанию)')
+  print(' [2] Обработать только новые изображения')
+  if input('- Введите 1 или 2: ').strip() == '2':
+    print(f" Обрабатываю только недостающие в папке '{result_folder_name}' изображения")
+    processed_list = [strip_format(item) for item in listdir(result_folder_name)]
+    folder_list = [item for item in folder_list if strip_format(item) not in processed_list]
+
   # For each image in folder
-  for img_name in listdir():
+  for img_name in folder_list:
     format = img_name.lower()[img_name.rfind('.') + 1:]
     if not format in ['png', 'jpg', 'jpeg']:
       skipped.append(img_name)
